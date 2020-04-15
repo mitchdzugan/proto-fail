@@ -5,6 +5,5 @@
 
 #?(:clj
    (defmacro defprotom [proto-name fn-name fn-args]
-     `(~(macros/case :clj 'clojure.core/defprotocol
-                     :cljs 'cljs.core/defprotocol) ~proto-name
-       (~fn-name ~fn-args))))
+     `(defprotocol ~proto-name
+       ~(clojure.core/list fn-name fn-args))))
